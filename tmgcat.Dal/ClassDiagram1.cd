@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="tmgcat.Dal.Repositories.UserRepository">
+    <Position X="12.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Repositories\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Dal.Repositories.PgRepository">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Repositories\PgRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Dal.Repositories.GameRepository">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAACACAA=</HashCode>
+      <FileName>Repositories\GameRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Dal.Repositories.GameListRepository">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAEAAAAAAACAA=</HashCode>
+      <FileName>Repositories\GameListRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Dal.Infrastructure.Postgres">
+    <Position X="6.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAkAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Postgres.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Dal.Entities.GameListDataEntity">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAEAAAAAAAAAAEAAAgAAAAAAgAAAAAEAAEAAAA=</HashCode>
+      <FileName>Entities\GameListDataEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Dal.Extensions.ServiceCollectionExtensions">
+    <Position X="3.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Extensions\ServiceCollectionExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="HomeworkApp.Dal.Repositories.Interfaces.IPgRepository" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\Interfaces\IPgRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
