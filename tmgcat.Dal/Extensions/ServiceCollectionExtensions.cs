@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using tmgcat.Bll.Interfaces;
+using tmgcat.Bll.Interfaces.Games;
+using tmgcat.Bll.Interfaces.Users;
 using tmgcat.Dal.Infrastructure;
 using tmgcat.Dal.Repositories;
 using tmgcat.Dal.Settings;

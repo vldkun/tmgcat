@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="tmgcat.Bll.Services.GameService">
+    <Position X="13.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Services\GameService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Services.GameListService">
+    <Position X="10.75" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAIAAAAIAQAAAAAAAAAAAAAAACAI=</HashCode>
+      <FileName>Services\GameListService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Services.DateTimeProvider">
+    <Position X="15.75" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\DateTimeProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Games.AddGameListItemModel">
+    <Position X="15.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAEAAAgAAAAAAgAAAAAEAAEAAAA=</HashCode>
+      <FileName>Models\Games\AddGameListItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Games.GameModel">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAEEAAgAEAIAAIAAAAAAAAAAAAACAAAABAACAA=</HashCode>
+      <FileName>Models\Games\GameModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Games.GetGameTitleModel">
+    <Position X="11" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Models\Games\GetGameTitleModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Extensions.ServiceCollectionExtensions">
+    <Position X="15.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Extensions\ServiceCollectionExtensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Comments.CommentModel" Collapsed="true">
+    <Position X="15.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Comments\CommentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Movies.AddMovieListItemModel" Collapsed="true">
+    <Position X="15.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Movies\AddMovieListItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Movies.GetMovieModel" Collapsed="true">
+    <Position X="15.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Movies\GetMovieModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Movies.GetMovieTitleModel" Collapsed="true">
+    <Position X="15.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Movies\GetMovieTitleModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Movies.MovieListItemModel" Collapsed="true">
+    <Position X="15.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Movies\MovieListItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Movies.MovieModel" Collapsed="true">
+    <Position X="15.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Movies\MovieModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.TVShows.AddTvshowListItemModel" Collapsed="true">
+    <Position X="14" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TVShows\AddTvshowListItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.TVShows.GetTvshowModel" Collapsed="true">
+    <Position X="14" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TVShows\GetTvshowModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.TVShows.GetTvshowTitleModel" Collapsed="true">
+    <Position X="14" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TVShows\GetTvshowTitleModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.TVShows.TvshowListItemModel" Collapsed="true">
+    <Position X="14" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TVShows\TvshowListItemModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.TVShows.TvshowModel" Collapsed="true">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TVShows\TvshowModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Models.Users.AddUserModel">
+    <Position X="11.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Users\AddUserModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="tmgcat.Bll.Services.CommentService">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\CommentService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Services.MovieListService">
+    <Position X="10" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAACAI=</HashCode>
+      <FileName>Services\MovieListService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Services.MovieService">
+    <Position X="11.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Services\MovieService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Services.TvshowListService">
+    <Position X="8.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAQAAQAAAAAAAAAAAAAAACAI=</HashCode>
+      <FileName>Services\TvshowListService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Services.TvshowService">
+    <Position X="11.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Services\TvshowService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="tmgcat.Bll.Services.UserService">
+    <Position X="10" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAgEAAAAAAAAAA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="tmgcat.Bll.Interfaces.IDateTimeProvider">
+    <Position X="6.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IDateTimeProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Comments.ICommentRepository">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Comments\ICommentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Comments.ICommentService">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Comments\ICommentService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Games.IGameListRepository">
+    <Position X="4.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Games\IGameListRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Games.IGameListService">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAIAQAAAAAAAAAAAAAAACAI=</HashCode>
+      <FileName>Interfaces\Games\IGameListService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Games.IGameRepository">
+    <Position X="6.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Interfaces\Games\IGameRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Games.IGameService">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Interfaces\Games\IGameService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Movies.IMovieListRepository">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Movies\IMovieListRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Movies.IMovieListService">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAACAI=</HashCode>
+      <FileName>Interfaces\Movies\IMovieListService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Movies.IMovieRepository">
+    <Position X="8.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Movies\IMovieRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Movies.IMovieService">
+    <Position X="8.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Interfaces\Movies\IMovieService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.TVShows.ITvshowListRepository">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\TVShows\ITvshowListRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.TVShows.ITvshowListService">
+    <Position X="6.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAQAAQAAAAAAAAAAAAAAACAI=</HashCode>
+      <FileName>Interfaces\TVShows\ITvshowListService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.TVShows.ITvshowRepository">
+    <Position X="3" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Interfaces\TVShows\ITvshowRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.TVShows.ITvshowService">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\TVShows\ITvshowService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Users.IUserRepository">
+    <Position X="8.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAgAAAAAAAAAAAAEAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Interfaces\Users\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="tmgcat.Bll.Interfaces.Users.IUserService">
+    <Position X="6.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAgEAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\Users\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

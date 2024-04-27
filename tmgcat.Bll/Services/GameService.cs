@@ -1,4 +1,4 @@
-﻿using tmgcat.Bll.Interfaces;
+﻿using tmgcat.Bll.Interfaces.Games;
 using tmgcat.Bll.Models.Games;
 
 namespace tmgcat.Bll.Services;

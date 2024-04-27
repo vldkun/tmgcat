@@ -1,6 +1,6 @@
 ﻿using tmgcat.Bll.Models.Games;
 
-namespace tmgcat.Bll.Interfaces;
+namespace tmgcat.Bll.Interfaces.Games;
 
 public interface IGameListService
 {

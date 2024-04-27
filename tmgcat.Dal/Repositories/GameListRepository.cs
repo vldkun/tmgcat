@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.Extensions.Options;
 using tmgcat.Bll.Interfaces;
+using tmgcat.Bll.Interfaces.Games;
 using tmgcat.Bll.Models.Games;
 using tmgcat.Dal.Entities;
 using tmgcat.Dal.Settings;

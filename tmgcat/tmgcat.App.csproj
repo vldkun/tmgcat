@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Middlewares\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\tmgcat.Bll\tmgcat.Bll.csproj" />
     <ProjectReference Include="..\tmgcat.Dal\tmgcat.Dal.csproj" />
   </ItemGroup>

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using tmgcat.App.Contracts;
-using tmgcat.Bll.Interfaces;
+using tmgcat.Bll.Interfaces.Games;
 
 namespace tmgcat.App.Controllers
 {

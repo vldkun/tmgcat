@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using tmgcat.Bll.Interfaces;
+using tmgcat.Bll.Interfaces.Games;
 using tmgcat.Bll.Services;
 
 namespace tmgcat.Bll.Extensions;
