@@ -1,15 +1,40 @@
 <template>
     <div>
-        HJGJHGUKY
-    </div>
-    <div>
-        <h1>Список игр</h1>
+        <h1>Мой список игр</h1>
         <div v-if="loading" class="loading">Идет загрузка...</div>
         <div v-if="error" class="error">{{ error }}</div>
         <div v-if="gameList" class="content">
-            <game-list
-                :gameList="gameList"
-            />     
+          <table class="table">
+            <tr>
+              <th>
+                Название игры
+              </th>
+              <th>
+               Статус
+              </th>
+              <th>
+               Наиграно
+              </th>
+              <th>
+                Оценка
+              </th>
+            </tr>
+            <tr v-for="item in gameList">
+            <td>
+              {{ item.title }}
+            </td>
+            <td>
+              {{ item.status }}
+            </td>
+            <td>
+              {{ item.minutes_played }}
+            </td>
+            <td>
+              {{ item.user_rating }}
+            </td>
+          </tr>
+          </table>
+               
         </div>
     </div>    
 </template>
@@ -23,9 +48,9 @@ import { useRoute } from "vue-router";
 import getSortedGameList from "@/hooks/getSortedGameList";
 
 export default {
-    components: {
-        GameList
-    },
+  components: {
+    GameList
+  },
   data() {
     return {
       loading: false,
@@ -37,21 +62,21 @@ export default {
     // watch the params of the route to fetch the data again
     this.$watch(
       () => this.$route.params.userId,
-      this.fetchData,
+      this.fetchGameListData,
       // fetch the data when the view is created and the data is
       // already being observed
       { immediate: true }
     )
   },
   methods: {
-    async fetchData(id) {
+    async fetchGameListData(id) {
       this.error = this.gameList = null
       this.loading = true
 
       try {
         // replace `getPost` with your data fetching util / API wrapper
-          this.gameList = (await getGameList(id)).gameList
-        
+        this.gameList = (await getGameList(id)).gameList
+
       } catch (err) {
         this.error = err.toString()
       } finally {
@@ -81,5 +106,20 @@ export default {
 </script>
 
 <style scoped>
-
+.table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse; 
+}
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	background: #efefef;
+	border: 1px solid #dddddd;
+}
+.table td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+}
 </style>

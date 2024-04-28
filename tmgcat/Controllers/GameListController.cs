@@ -2,6 +2,7 @@
 using System.Net.Mime;
 using tmgcat.App.Contracts;
 using tmgcat.Bll.Interfaces.Games;
+using tmgcat.Bll.Models.Games;
 
 namespace tmgcat.App.Controllers;
 
@@ -33,12 +34,45 @@ public class GameListController : ControllerBase
                 0 => "Planned",
                 1 => "Playing",
                 2 => "Played",
-                3 => "Not planned",
-                _ => "None"
+                _ => "Not planned"
             },
             MinutesPlayed = g.MinutesPlayed,
             UserRating = g.UserRating
         });
         return Ok(results);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult> Add(long userId, long gameId, string status)
+    {
+        try
+        {
+            var game = new AddGameListItemModel[]
+            {
+                new()
+                {
+                    UserId = userId,
+                    GameId = gameId,
+                    Status = status switch
+                    {
+                        "Planned" => 0,
+                        "Playing" => 1,
+                        "Played" => 2,
+                        "Not planned" => 3,
+                        _ => throw new InvalidOperationException()
+
+                    },
+                    MinutesPlayed = 0
+                }
+            };
+
+            await _gameListService.AddToList(game, CancellationToken.None);
+        }
+        catch (InvalidOperationException e)
+        {
+            return BadRequest();
+        }
+
+        return Ok();
     }
 }

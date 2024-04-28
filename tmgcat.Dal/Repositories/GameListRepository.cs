@@ -101,6 +101,7 @@ update game_list
 left join games g on g.id = gl.game_id
     where gl.user_id = @UserId
       and gl.deleted_at is null
+    order by status
 ";
 
         var cmd = new CommandDefinition(

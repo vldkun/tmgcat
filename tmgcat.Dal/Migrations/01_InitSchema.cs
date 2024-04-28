@@ -18,7 +18,7 @@ public class InitSchema : Migration
             .WithColumn("blocked_at").AsDateTimeOffset().Nullable();
         
         Create.Table("games")
-            .WithColumn("id").AsInt64().PrimaryKey("games_pk")
+            .WithColumn("id").AsInt64().PrimaryKey("games_pk").Identity()
             .WithColumn("title").AsString().NotNullable()
             .WithColumn("description").AsString().Nullable()
             .WithColumn("igdb_id").AsInt32().NotNullable()

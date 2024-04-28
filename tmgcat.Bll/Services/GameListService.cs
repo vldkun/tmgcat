@@ -26,17 +26,21 @@ public class GameListService : IGameListService
     public async Task ChangeUserRating(long userId, long gameId, int rating, CancellationToken token)
     {
         using var transaction = CreateTransactionScope(IsolationLevel.Serializable);
-
-        var item = _gameListRepository.GetListAsync(userId,token).Result.First(p => p.GameId==gameId);
-        var newItem = new AddGameListItemModel
+        var result = await _gameListRepository.GetListAsync(userId, token);
+        if (result.Length != 0)
         {
-            UserId = userId,
-            GameId = item.GameId,
-            Status = item.Status,
-            MinutesPlayed = item.MinutesPlayed,
-            UserRating = rating
-        };
-        await _gameListRepository.UpdateAsync(newItem, token);
+            var item = result.First(p => p.GameId == gameId);
+            var newItem = new AddGameListItemModel
+            {
+                UserId = userId,
+                GameId = item.GameId,
+                Status = item.Status,
+                MinutesPlayed = item.MinutesPlayed,
+                UserRating = rating
+            };
+            await _gameListRepository.UpdateAsync(newItem, token);
+        }
+
         transaction.Complete();
     }
 
@@ -61,17 +65,52 @@ public class GameListService : IGameListService
     {
         using var transaction = CreateTransactionScope(IsolationLevel.Serializable);
 
-        var item = _gameListRepository.GetListAsync(userId, token).Result.First(p => p.GameId == gameId);
-        var newItem = new AddGameListItemModel
+        try
         {
-            UserId = userId,
-            GameId = item.GameId,
-            Status = status,
-            MinutesPlayed = item.MinutesPlayed,
-            UserRating = item.UserRating
-        };
-        await _gameListRepository.UpdateAsync(newItem, token);
+            var result = await _gameListRepository.GetListAsync(userId, token);
+            var item = result.First(p => p.GameId == gameId);
+            var newItem = new AddGameListItemModel
+            {
+                UserId = userId,
+                GameId = item.GameId,
+                Status = status,
+                MinutesPlayed = item.MinutesPlayed,
+                UserRating = item.UserRating
+            };
+
+            await _gameListRepository.UpdateAsync(newItem, token);
+        }
+        catch (InvalidOperationException e)
+        {
+            var newItem = new AddGameListItemModel[]
+            {
+                new()
+                {
+                    UserId = userId,
+                    GameId = gameId,
+                    Status = status,
+                    MinutesPlayed = 0
+                }
+            };
+
+            await _gameListRepository.AddAsync(newItem, token);
+        }
+
         transaction.Complete();
+    }
+
+    public async Task<int> GetUserStatus(long userId, long gameId, CancellationToken token)
+    {
+        var list = await _gameListRepository.GetListAsync(userId, token);
+        try
+        {
+            return list.Where(g => g.GameId == gameId).Select(g => g.Status).First();
+        }
+        catch (InvalidOperationException e)
+        {
+            return -1;
+        }
+        
     }
 
     private TransactionScope CreateTransactionScope(
