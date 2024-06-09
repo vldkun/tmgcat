@@ -38,6 +38,15 @@ public class InitSchema : Migration
             .WithColumn("minutes_played").AsInt32().NotNullable().WithDefaultValue(0)
             .WithColumn("user_rating").AsInt32().Nullable()
             .WithColumn("deleted_at").AsDateTimeOffset().Nullable();
+
+        Create.Table("comments")
+            .WithColumn("id").AsInt64().PrimaryKey("comments_pk").Identity()
+            .WithColumn("page_type").AsInt32().NotNullable()
+            .WithColumn("page_id").AsInt64().NotNullable()
+            .WithColumn("parent_comment_id").AsInt64().Nullable()
+            .WithColumn("content").AsString().NotNullable()
+            .WithColumn("created_at").AsDateTimeOffset().NotNullable()
+            .WithColumn("created_by_user_id").AsInt64().NotNullable();
     }
 
     public override void Down()
@@ -45,5 +54,6 @@ public class InitSchema : Migration
         Delete.Table("users");
         Delete.Table("games");
         Delete.Table("game_list");
+        Delete.Table("comments");
     }
 }

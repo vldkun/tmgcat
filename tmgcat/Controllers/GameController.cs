@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
 using tmgcat.App.Contracts;
 using tmgcat.Bll.Interfaces.Games;
+using tmgcat.Bll.Models.Comments;
 
 namespace tmgcat.App.Controllers
 {
@@ -68,10 +69,10 @@ namespace tmgcat.App.Controllers
             return Ok(result);
         }
 
-        
+
         [HttpPost]
         [Route("{gameId}/Status/{userId}")]
-        public async Task<ActionResult<string>> ChangeUserStatus(long gameId, long userId, string status)
+        public async Task<ActionResult> ChangeUserStatus(long gameId, long userId, string status)
         {
             try
             {
@@ -89,7 +90,45 @@ namespace tmgcat.App.Controllers
             {
                 return BadRequest();
             }
-            
+
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("{gameId}/Comments")]
+        public async Task<ActionResult<CommentDto[]>> GetComments(long gameId)
+        {
+            var comments = await _gameService.GetComments(gameId, CancellationToken.None);
+            var result = comments.Select(c => new CommentDto
+            {
+                Content = c.Content,
+                CreatedByUserId = c.CreatedByUserId,
+                CreatedAt = c.CreatedAt,
+                Id = c.Id,
+                Level = c.Level,
+                PageId = c.PageId,
+                PageType = c.PageType,
+                ParentCommentId = c.ParentCommentId,
+                RootCommentId = c.RootCommentId,
+                UserName = c.UserName,
+                UserProfilePicturePath = c.UserProfilePicturePath
+            });
+            return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("{gameId}/Comments")]
+        public async Task<ActionResult> AddComment(long gameId, string content, long createdByUserId,
+            long? parentCommentId)
+        {
+            var comment = new AddCommentModel()
+            {
+                Content = content,
+                CreatedByUserId = createdByUserId,
+                ParentCommentId = parentCommentId,
+                PageId = gameId
+            };
+            await _gameService.AddComment(comment, CancellationToken.None);
             return Ok();
         }
     }

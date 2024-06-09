@@ -22,7 +22,7 @@ public class UserRepository : PgRepository, IUserRepository
         throw new NotImplementedException();
     }
 
-    public Task<long[]> GetFriendIdsAsync(long userId, CancellationToken token)
+    public Task<GetUserLightModel[]> GetFriendsAsync(long userId, CancellationToken token)
     {
         throw new NotImplementedException();
     }

@@ -5,23 +5,23 @@ using tmgcat.Dal.Settings;
 
 namespace tmgcat.Dal.Repositories;
 
-public class TvshowRepository : PgRepository, ITvshowRepository
+public class TvShowRepository : PgRepository, ITvShowRepository
 {
-    public TvshowRepository(IOptions<DalOptions> dalSettings) : base(dalSettings.Value)
+    public TvShowRepository(IOptions<DalOptions> dalSettings) : base(dalSettings.Value)
     {
     }
 
-    public Task<GetTvshowModel> GetTvshowByIdAsync(long tvshowId, CancellationToken token)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<GetTvshowTitleModel[]> GetTvshowTitleByIdAsync(long[] tvshowIds, CancellationToken token)
+    public Task<GetTvShowModel> GetTvShowByIdAsync(long tvShowId, CancellationToken token)
     {
         throw new NotImplementedException();
     }
 
-    public Task<long[]> AddAsync(TvshowModel[] tvshows, CancellationToken token)
+    public Task<GetTvShowTitleModel[]> GetTvShowTitleByIdAsync(long[] tvShowIds, CancellationToken token)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<long[]> AddAsync(TvShowModel[] tvShows, CancellationToken token)
     {
         throw new NotImplementedException();
     }

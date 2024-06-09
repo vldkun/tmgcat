@@ -47,9 +47,9 @@ update game_list
     public async Task AddAsync(AddGameListItemModel[] games, CancellationToken token)
     {
         const string sqlQuery = @"
-insert into game_list (user_id, game_id, status, minutes_played, user_rating) 
-select user_id, game_id, status, minutes_played, user_rating
-  from UNNEST(@Games)
+   insert into game_list (user_id, game_id, status, minutes_played, user_rating) 
+   select user_id, game_id, status, minutes_played, user_rating
+     from UNNEST(@Games)
 returning id;
 ";
 

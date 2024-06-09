@@ -3,19 +3,19 @@ using tmgcat.Bll.Models.TVShows;
 
 namespace tmgcat.Bll.Services;
 
-public class TvshowService : ITvshowService
+public class TvShowService : ITvShowService
 {
-    public Task<GetTvshowModel> GetTvshow(long tvshowId, CancellationToken token)
+    public Task<GetTvShowModel> GetTvShow(long tvShowId, CancellationToken token)
     {
         throw new NotImplementedException();
     }
 
-    public Task<GetTvshowTitleModel[]> GetTvshowTitles(long[] tvshowIds, CancellationToken token)
+    public Task<GetTvShowTitleModel[]> GetTvShowTitles(long[] tvShowIds, CancellationToken token)
     {
         throw new NotImplementedException();
     }
 
-    public Task<long[]> AddTvshow(TvshowModel tvshow, CancellationToken token)
+    public Task<long[]> AddTvShow(TvShowModel tvShow, CancellationToken token)
     {
         throw new NotImplementedException();
     }

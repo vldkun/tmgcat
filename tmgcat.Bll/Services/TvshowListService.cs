@@ -3,29 +3,29 @@ using tmgcat.Bll.Models.TVShows;
 
 namespace tmgcat.Bll.Services;
 
-public class TvshowListService : ITvshowListService
+public class TvShowListService : ITvShowListService
 {
-    public Task<TvshowListItemModel[]> GetList(long userId, CancellationToken token)
+    public Task<TvShowListItemModel[]> GetList(long userId, CancellationToken token)
     {
         throw new NotImplementedException();
     }
 
-    public Task AddToList(AddTvshowListItemModel[] tvshows, CancellationToken token)
+    public Task AddToList(AddTvShowListItemModel[] tvShows, CancellationToken token)
     {
         throw new NotImplementedException();
     }
 
-    public Task ChangeUserRating(long userId, long tvshowId, int rating, CancellationToken token)
+    public Task ChangeUserRating(long userId, long tvShowId, int rating, CancellationToken token)
     {
         throw new NotImplementedException();
     }
 
-    public Task ChangeEpisodesNumber(long userId, long tvshowId, int episodes, CancellationToken token)
+    public Task ChangeEpisodesNumber(long userId, long tvShowId, int episodes, CancellationToken token)
     {
         throw new NotImplementedException();
     }
 
-    public Task ChangeUserStatus(long userId, long tvshowId, int status, CancellationToken token)
+    public Task ChangeUserStatus(long userId, long tvShowId, int status, CancellationToken token)
     {
         throw new NotImplementedException();
     }

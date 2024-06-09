@@ -57,6 +57,32 @@ select id, title, released_at, cover_path
             .ToArray();
     }
 
+    public async Task<GetGameTitleModel[]> SearchGamesAsync(string query, CancellationToken token)
+    {
+        const string sqlQuery = @"
+SELECT id
+     , title
+     , released_at
+     , cover_path
+     , public.similarity(title, @Query::text) AS similarity
+  FROM games
+ ORDER BY similarity DESC
+ limit 5;
+";
+        var cmd = new CommandDefinition(
+            sqlQuery,
+            new
+            {
+                Query = query
+            },
+            commandTimeout: DefaultTimeoutInSeconds,
+            cancellationToken: token);
+
+        await using var connection = await GetConnection();
+        return (await connection.QueryAsync<GetGameTitleModel>(cmd))
+            .ToArray();
+    }
+
     public async Task<long[]> AddAsync(GameModel[] games, CancellationToken token)
     {
         const string sqlQuery = @"

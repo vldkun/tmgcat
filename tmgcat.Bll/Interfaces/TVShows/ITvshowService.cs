@@ -2,11 +2,11 @@
 
 namespace tmgcat.Bll.Interfaces.TVShows;
 
-public interface ITvshowService
+public interface ITvShowService
 {
-    Task<GetTvshowModel> GetTvshow(long tvshowId, CancellationToken token);
+    Task<GetTvShowModel> GetTvShow(long tvShowId, CancellationToken token);
 
-    Task<GetTvshowTitleModel[]> GetTvshowTitles(long[] tvshowIds, CancellationToken token);
+    Task<GetTvShowTitleModel[]> GetTvShowTitles(long[] tvShowIds, CancellationToken token);
 
-    Task<long[]> AddTvshow(TvshowModel tvshow, CancellationToken token);
+    Task<long[]> AddTvShow(TvShowModel tvShow, CancellationToken token);
 }

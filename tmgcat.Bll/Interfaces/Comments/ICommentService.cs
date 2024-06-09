@@ -1,10 +1,11 @@
-﻿using tmgcat.Bll.Models.Comments;
+﻿using tmgcat.Bll.Enums;
+using tmgcat.Bll.Models.Comments;
 
 namespace tmgcat.Bll.Interfaces.Comments;
 
 public interface ICommentService
 {
-    Task<CommentModel[]> GetComment(string page, CancellationToken token);
+    Task<GetCommentModel[]> GetComments(long pageId, PageType pageType, CancellationToken token);
 
     Task AddComment(CommentModel comment, CancellationToken token);
 }

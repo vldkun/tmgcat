@@ -1,0 +1,84 @@
+.title-page-button {
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin: 10px;
+    height: 40px;
+    width: 140px;
+    border: #3e3e3e;
+    border: 5px;    
+    border-radius: 4px;   
+    background-color: #dcdcdc;
+    font-family: inherit;
+    font-size: inherit;    
+}
+.title-page-button-selected {
+    transition-duration: 0.4s;
+    cursor: pointer;
+    margin: 10px;
+    height: 40px;
+    width: 140px;
+    border: #3e3e3e;
+    border: 5px;
+    border-radius: 4px;  
+    color: #dcdcdc; 
+    background-color: #747474;
+    font-family: inherit;
+    font-size: inherit;    
+}
+.title-page-button:hover {
+    background-color: #f0f0f0;   
+}
+.title-page-button-selected:hover {
+    background-color: #3e3e3e;   
+}
+.title-page-app__btns {
+    vertical-align: middle;
+    align-items: center;
+}
+
+.title-page-data {
+    margin-bottom: 30px;
+    line-height: 1.65;
+    position: relative;
+}
+
+.title-page-image {
+    float: left;
+    margin-right: 4%;
+    position: relative;
+}
+
+.title-page-description {
+    height: 100px;
+    width: 600px;
+    display: inline-block;
+}
+
+.title-page-info {
+    float: left;
+    position: relative;
+    margin-left: 10px;
+    width: 70%;
+}
+
+.title-page-table table {
+    table-layout: fixed;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.title-page-table td {
+    table-layout: fixed;
+    border: none;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+.title-page-head {
+    margin-bottom: 15px;
+}
+
+.title-page-head-separator {
+    color: #e6e6e6;
+    padding: 0 5px;
+}

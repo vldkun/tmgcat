@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using tmgcat.Bll.Interfaces.Comments;
 using tmgcat.Bll.Interfaces.Games;
 using tmgcat.Bll.Interfaces.Users;
 using tmgcat.Dal.Infrastructure;
@@ -21,6 +22,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IGameListRepository, GameListRepository>();
         services.AddScoped<IGameRepository, GameRepository>();
+        services.AddScoped<ICommentRepository, CommentRepository>();
     }
 
     public static IServiceCollection AddDalInfrastructure(

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using tmgcat.Bll.Interfaces;
+using tmgcat.Bll.Interfaces.Comments;
 using tmgcat.Bll.Interfaces.Games;
 using tmgcat.Bll.Services;
 
@@ -13,6 +14,7 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IGameService, GameService>();
         services.AddScoped<IGameListService, GameListService>();
         services.AddScoped<IDateTimeProvider, DateTimeProvider>();
+        services.AddScoped<ICommentService, CommentService>();
 
         return services;
     }

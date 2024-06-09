@@ -2,9 +2,9 @@
 
 namespace tmgcat.Bll.Interfaces.TVShows;
 
-public interface ITvshowRepository
+public interface ITvShowRepository
 {
-    Task<GetTvshowModel> GetTvshowByIdAsync(long tvshowId, CancellationToken token);
-    Task<GetTvshowTitleModel[]> GetTvshowTitleByIdAsync(long[] tvshowIds, CancellationToken token);
-    Task<long[]> AddAsync(TvshowModel[] tvshows, CancellationToken token);
+    Task<GetTvShowModel> GetTvShowByIdAsync(long tvShowId, CancellationToken token);
+    Task<GetTvShowTitleModel[]> GetTvShowTitleByIdAsync(long[] tvShowIds, CancellationToken token);
+    Task<long[]> AddAsync(TvShowModel[] tvShows, CancellationToken token);
 }

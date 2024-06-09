@@ -1,21 +1,23 @@
 <template>
-    <div>
-        <div v-if="loading" class="loading">Идет загрузка...</div>
-        <div v-if="error" class="error">{{ error }}</div>
-        <div v-if="game" class="content">
-            <h1>
-                {{ game.title }}
-            </h1>
-            <div>
-                <div class="image">
-                    <img :src="getUrl(game.cover_path)" />
+    <div class="title-page">
+        <div v-if="loading" class="title-page-loading">Идет загрузка...</div>
+        <div v-if="error" class="title-page-error">{{ error }}</div>
+        <div v-if="game" class="title-page-content">
+            <div class="title-page-head">
+                <h1>
+                    {{ game.title }}
+                </h1>
+                <!--<span class="title-page-head-separator inline">/</span>-->
+            </div>
+            <div class="title-page-data">
+                <div class="title-page-image">
+                    <img :src="getUrl(game.cover_path)" width=225px />
                 </div>
-                <div class="info">
-                    <table class="table">
-                        <tr>
-                            <td>Дата выхода:</td>
-                            <td>{{ formatDate(releaseDate) }}</td>
-                        </tr>
+                <div class="title-page-info">
+                    <h2>
+                        Информация
+                    </h2>
+                    <table class="title-page-info-table">
                         <tr>
                             <td>Жанры:</td>
                             <td>{{ game.genres }}</td>
@@ -33,54 +35,93 @@
                             <td>{{ game.status }}</td>
                         </tr>
                         <tr>
+                            <td>Дата выхода:</td>
+                            <td>{{ formatDate(releaseDate) }}</td>
+                        </tr>
+                        <tr>
                             <td>Категория: </td>
                             <td>{{ game.category }}</td>
                         </tr>
                     </table>
+
+                    <h2>
+                        Оценки
+                    </h2>
+                    <h2>
+                        Мой Статус
+                    </h2>
+                    <div class="title-page-app__btns">
+                        <button class="title-page-button" :class="{
+                            'title-page-button-selected': userStatus === 'Playing'
+                        }" @click="changeStatus('Playing')">
+                            Играю
+                        </button>
+                        <button class="title-page-button" :class="{
+                            'title-page-button-selected': userStatus === 'Played'
+                        }" @click="changeStatus('Played')">
+                            Играл
+                        </button>
+                        <button class="title-page-button" :class="{
+                            'title-page-button-selected': userStatus === 'Planned'
+                        }" @click="changeStatus('Planned')">
+                            Запланировано
+                        </button>
+                        <button class="title-page-button" :class="{
+                            'title-page-button-selected': userStatus === 'Not planned'
+                        }" @click="changeStatus('Not planned')">
+                            Не в планах
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <h2>
+                Описание
+            </h2>
+            <div class="title-page-description">
+                {{ game.description }}
+            </div>
+            <h2>
+                Комментарии
+            </h2>
+            <div class="comment-block">
+                <div v-if="comments.length == 0">Комментариев пока нет.</div>
+                <div v-if="comments.length > 0" class="comment-all">
+                    <div v-for="comment in comments">
+                        <div class="comment-single" :style="`margin-left: ${(comment.level-1) * 5}%`">
+                            <div class="comment-content">
+                                <header class="comment-header">
+                                    <div class="comment-user-pic">
+                                        <img :src="getUrl(comment.user_profile_picture_path)" width=48px
+                                            @click="goToProfile(comment.created_by_user_id)" />
+                                    </div>
+                                    <div class="comment-name-date">
+                                        <div class="comment-user-name" @click="goToProfile(comment.created_by_user_id)">
+                                            {{ comment.user_name }}
+                                        </div>
+                                        <span class="comment-date">
+                                            Отправлено {{ formatDateFull(comment.created_at) }}
+                                        </span>
+                                    </div>
+                                </header>
+                                <div class="comment-body">
+                                    {{ comment.content }}
+                                </div>
+                                <div @click="addReply(comment.id)" class="comment-reply">
+                                    Ответить
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <h2>
-                    Описание
+                    Комментировать
                 </h2>
-                <div class="description">
-                    {{ game.description }}
-                </div>
-                <div class="app__btns">
-                    <status-selector 
-                        class="status"
-                        :class = "{
-                            'current-status': userStatus=== 'Playing'
-                        }"
-                        @click="changeStatus('Playing')"
-                    >
-                        Играю
-                    </status-selector>
-                    <status-selector 
-                        class="status"
-                        :class = "{
-                            'current-status': userStatus=== 'Played'
-                        }"
-                        @click="changeStatus('Played')"
-                    >
-                        Играл
-                    </status-selector>
-                    <status-selector 
-                        class="status"
-                        :class = "{
-                            'current-status': userStatus === 'Planned'
-                        }"
-                        @click="changeStatus('Planned')"
-                    >
-                        Запланировано
-                    </status-selector>
-                    <status-selector 
-                        class="status"
-                        :class = "{
-                            'current-status': userStatus === 'Not planned'
-                        }"
-                        @click="changeStatus('Not planned')"
-                    >
-                        Не в планах
-                    </status-selector>
+                <div class="comment-editor">
+                    <textarea v-model="message" class="comment-input" placeholder="Текст комментария"></textarea>
+                    <div class="title-page-app__btns">
+                        <button class="title-page-button" @click="newComment()">Отправить</button>
+                        <button v-if="replyCommentId != null" class="title-page-button" @click="removeReply()">Не отвечать</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -88,23 +129,27 @@
 </template>
 
 <script>
-import { getGame } from '@/hooks/getGame';
-import { getGameUserStatus } from '@/hooks/getGameUserStatus';
-import { changeGameUserStatus } from '@/hooks/changeGameUserStatus';
+import { getGame } from '@/hooks/getTitle';
+import { getGameUserStatus } from '@/hooks/getUserStatus';
+import { changeGameUserStatus } from '@/hooks/changeUserStatus';
+import { postGameComment } from '@/hooks/postComment';
+import { getGameComments } from '@/hooks/getComments';
 import formatDateMixin from '@/mixins/formatDateMixin';
-import StatusSelector from '@/components/StatusSelector.vue';
 
 export default {
     components() {
-        StatusSelector
+
     },
     data() {
         return {
+            replyCommentId: null,
+            message: '',
             loading: false,
             game: null,
+            comments: [],
             error: null,
             releaseDate: new Date(),
-            userStatus: null            
+            userStatus: null
         }
     },
     created() {
@@ -118,32 +163,52 @@ export default {
         )
     },
     methods: {
+        addReply(id) {
+            this.replyCommentId = id;
+        },
+        removeReply() {
+            this.replyCommentId = null;
+        },
+        goToProfile(id) {
+            this.$router.push(`/User/${id}/`);
+        },
+        goToGamePage(id) {
+            this.$router.push(`/Game/${id}/`);
+        },
         getUrl(link) {
             return new URL(link, import.meta.url).href;
         },
         async changeStatus(newStatus) {
-            if (this.userStatus != newStatus) {                
+            if (this.userStatus != newStatus) {
                 try {
                     await changeGameUserStatus(this.$route.params.gameId, 1, newStatus);
                     this.userStatus = newStatus;
                 } catch (err) {
                     this.error = err.toString()
                 } finally {
-                    
+
                 }
-            }            
+            }
+        },
+        async newComment() {
+            try {
+                console.log(this.replyCommentId);
+                await postGameComment(this.$route.params.gameId, 1, this.message, this.replyCommentId);
+            } catch (err) {
+                this.error = err.toString()
+            } finally {
+                location.reload();
+            }
         },
         async fetchGameData(id) {
             this.error = this.game = null
             this.loading = true
 
             try {
-                // replace `getPost` with your data fetching util / API wrapper
                 this.game = (await getGame(id)).game
                 this.releaseDate = this.game.released_at
                 this.userStatus = (await getGameUserStatus(id, 1)).status;
-                console.log(this.userStatus);
-
+                this.comments = (await getGameComments(id)).comments;
             } catch (err) {
                 this.error = err.toString()
             } finally {
@@ -160,74 +225,20 @@ export default {
 }
 </script>
 <style scoped>
-.status {
-    margin: 10px;
-    height: 40px;
-    width: 140px;
-    border: #3e3e3e;
-    border: 5px;    
-    border-radius: 4px;   
-    background-color: #dcdcdc;    
-}
-.current-status {
-    margin: 10px;
-    height: 40px;
-    width: 140px;
-    border: #3e3e3e;
-    border: 5px;
-    border-radius: 4px;  
-    color: #dcdcdc; 
-    background-color: #747474;    
-}
-.app__btns {    
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    vertical-align: middle;
-    align-items: center;
-}
-
-.image {
-    height: auto;
-    max-width: 100%;
-    display: inline-block;
-}
-
-.description {
-    height: 100px;
-    width: 600px;
-    display: inline-block;
-}
-
-.info {
-    width: 300px;
-    margin-top: auto;
-    margin-left: 10px;
-    display: inline-block;
-}
-
-.table {
+table {
+    table-layout: fixed;
     width: 100%;
+    border-collapse: collapse;
     border: none;
-    margin-bottom: 20px;
 }
 
-.table thead th {
-    padding: 10px;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 20px;
-    text-align: left;
-    color: #444441;
-    border-top: 2px solid #7c7c7c;
-    border-bottom: 2px solid #7c7c7c;
+table td:nth-child(1) {
+    width: 10%;
 }
 
-.table tbody td {
-    padding: 10px;
-    font-size: 14px;
-    line-height: 20px;
-    color: #444441;
-    border-top: 1px solid #7c7c7c;
+th,
+td {
+    padding: 2px;
+    width: 30%;
 }
 </style>

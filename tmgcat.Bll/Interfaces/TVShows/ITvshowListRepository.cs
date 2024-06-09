@@ -3,10 +3,10 @@ using tmgcat.Bll.Models.TVShows;
 
 namespace tmgcat.Bll.Interfaces.TVShows;
 
-public interface ITvshowListRepository
+public interface ITvShowListRepository
 {
-    Task UpdateAsync(AddTvshowListItemModel tvshow, CancellationToken token);
-    Task AddAsync(AddTvshowListItemModel[] tvshows, CancellationToken token);
-    Task SetDeletedAsync(long userId, long tvshowId, CancellationToken token);
-    Task<TvshowListItemModel[]> GetListAsync(long userId, CancellationToken token);
+    Task UpdateAsync(AddTvShowListItemModel tvShow, CancellationToken token);
+    Task AddAsync(AddTvShowListItemModel[] tvShows, CancellationToken token);
+    Task SetDeletedAsync(long userId, long tvShowId, CancellationToken token);
+    Task<TvShowListItemModel[]> GetListAsync(long userId, CancellationToken token);
 }

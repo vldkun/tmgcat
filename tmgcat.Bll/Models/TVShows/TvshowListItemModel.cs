@@ -1,6 +1,6 @@
 ﻿namespace tmgcat.Bll.Models.TVShows;
 
-public class TvshowListItemModel
+public class TvShowListItemModel
 {
     
 }

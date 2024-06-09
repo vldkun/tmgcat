@@ -1,0 +1,91 @@
+.comment-block {
+    margin-bottom: 30px;
+    line-height: 1.65;
+    position: relative;
+}
+
+.comment-single {
+    padding-top: 5px;
+    background-color: #e4e4e4;
+    border-top: 1px #272727;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.comment-all {
+    margin: 0;
+    padding: 0;
+}
+
+.comment-date {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #a0a0a0;
+    display: inline;
+}
+
+.comment-body {
+    margin-left: 58px;
+    line-height: 1.65;
+    overflow: hidden;
+}
+
+.comment-user-pic {
+    margin-left: 4px;
+    margin-top: 2px;
+    margin-right: 10px;
+    float: left;
+    width: 48px;
+    cursor: pointer;
+}
+
+.comment-header {
+    margin-bottom: 3px;
+    display: block;
+}
+
+.comment-user-name {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.comment-name-date {
+    height: auto;
+    line-height: 1;
+    margin-left: 58px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.comment-content {
+    position: relative;
+    width: 100%;
+    transition: margin-left 0.25s ease;
+    min-height: 58px;
+}
+
+.comment-reply {
+    cursor: pointer;
+    text-align: right;
+    margin-left: 5px;
+    width: 5%;
+}
+
+.comment-input {
+    background-color: #f7f7f7;
+    border: none;
+    min-height: 100px;
+    width: 100%;
+    border-radius: 4px;
+    padding: 12px 20px;
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+textarea:focus {
+    border-color: #909090;
+}

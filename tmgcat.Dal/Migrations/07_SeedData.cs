@@ -16,7 +16,7 @@ public class SeedData : Migration
              , ('Fallout 4', 'Bethesda Game Studios welcome you to the world of Fallout 4, their most ambitious game ever, and the next generation of open-world gaming.', '15', '2015-11-09', 'Steam', 'RPG', 'https://www.igdb.com/games/fallout-4', 0, 'Game', 'Bethesda');
         ";
 
-        //Execute.Sql(games);
+        Execute.Sql(games);
 
         const string gameList = @"
         insert into game_list (user_id, game_id, status, minutes_played, user_rating)
@@ -26,16 +26,15 @@ public class SeedData : Migration
              , (1, 5, 3, 352, 8);
         ";
 
-        //Execute.Sql(gameList);
+        Execute.Sql(gameList);
 
         const string users = @"
         insert into users (name, email, password, info, profile_picture_path, created_at, blocked_at)
-        values ('User1', 'safwf@gmail.com', '123', 'asdf', 'saff', '2024-01-01', null)
-             , ('User2', 'safwf@gmail.com', '123', 'asfd', 'asdf', '2024-01-02', null)
-             , ('User3', 'safsf@gmail.com', '123', 'asdf', 'asdf', '2024-01-03', null);
+        values ('Vlad', 'vladkuzmin997@gmail.com', '123', 'The Creator', 'https://sun9-48.userapi.com/impg/TSvSYqrvAMQ1unoASYXuMcnFwUFiPZTh1aTRYw/VQDgRWolW34.jpg?size=467x467&quality=95&sign=3e8ab9686d8945c1e7bed31df5d174d0&type=album', '2024-01-01', null)
+             , ('Evil Vlad', 'vladkuzmin9972@gmail.com', '123', 'The Devil', null, '2024-01-02', null);
         ";
 
-        //Execute.Sql(users);
+        Execute.Sql(users);
     }
 
     public override void Down()

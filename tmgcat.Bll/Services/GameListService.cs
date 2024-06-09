@@ -12,7 +12,7 @@ public class GameListService : IGameListService
     {
         _gameListRepository = gameListRepository;
     }
-    
+
     public async Task<GameListItemModel[]> GetList(long userId, CancellationToken token)
     {
         return await _gameListRepository.GetListAsync(userId, token);
@@ -110,7 +110,6 @@ public class GameListService : IGameListService
         {
             return -1;
         }
-        
     }
 
     private TransactionScope CreateTransactionScope(
@@ -126,3 +125,5 @@ public class GameListService : IGameListService
             TransactionScopeAsyncFlowOption.Enabled);
     }
 }
+
+

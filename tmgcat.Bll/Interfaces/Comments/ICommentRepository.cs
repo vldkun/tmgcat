@@ -1,10 +1,11 @@
-﻿using tmgcat.Bll.Models.Comments;
+﻿using tmgcat.Bll.Enums;
+using tmgcat.Bll.Models.Comments;
 
 namespace tmgcat.Bll.Interfaces.Comments;
 
 public interface ICommentRepository
 {
-    Task<CommentModel[]> Get(string page, CancellationToken token);
+    Task<GetCommentModel[]> GetAsync(long pageId, PageType pageType, CancellationToken token);
 
-    Task Add(CommentModel comment, CancellationToken token);
+    Task AddAsync(CommentModel comment, CancellationToken token);
 }

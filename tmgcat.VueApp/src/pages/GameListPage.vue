@@ -41,7 +41,7 @@
 
 <script>
 import { ref, watch } from 'vue'
-import { getGameList } from '@/hooks/getGameList';
+import { getGameList } from '@/hooks/getList';
 import GameList from '@/components/GameList.vue';
 import GameListItem from '@/components/GameListItem.vue';
 import { useRoute } from "vue-router";
