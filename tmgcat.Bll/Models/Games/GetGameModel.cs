@@ -13,4 +13,5 @@ public record GetGameModel
     public string? Genres { get; init; }
     public string? Category { get; init; }
     public string? InvolvedCompanies { get; init; }
+    public decimal? UserRating { get; init; }
 }

@@ -7,4 +7,5 @@ public interface ITvShowRepository
     Task<GetTvShowModel> GetTvShowByIdAsync(long tvShowId, CancellationToken token);
     Task<GetTvShowTitleModel[]> GetTvShowTitleByIdAsync(long[] tvShowIds, CancellationToken token);
     Task<long[]> AddAsync(TvShowModel[] tvShows, CancellationToken token);
+    Task<GetTvShowTitleModel[]> SearchTvShowsAsync(string query, CancellationToken token);
 }

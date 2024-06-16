@@ -9,4 +9,5 @@ public interface ITvShowListService
     Task ChangeUserRating(long userId, long tvShowId, int rating, CancellationToken token);
     Task ChangeEpisodesNumber(long userId, long tvShowId, int episodes, CancellationToken token);
     Task ChangeUserStatus(long userId, long tvShowId, int status, CancellationToken token);
+    Task<int> GetUserStatus(long userId, long tvShowId, CancellationToken token);
 }

@@ -16,4 +16,10 @@ public interface IUserService
     Task<GetCommentModel[]> GetComments(long userId, CancellationToken token);
 
     Task AddComment(AddCommentModel comment, CancellationToken token);
+
+    Task<bool> AuthUser(AddUserModel user, CancellationToken token);
+
+    Task<bool> CheckUsernameIsExist(string username, CancellationToken token);
+
+    Task<UserLogModel[]> GetLogs(long userId, CancellationToken token);
 }

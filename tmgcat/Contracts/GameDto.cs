@@ -7,7 +7,7 @@ public class GameDto
     [JsonPropertyName("game_id")] public required long GameId { get; set; }
     [JsonPropertyName("title")] public required string Title { get; set; }
     [JsonPropertyName("description")] public string? Description { get; set; }
-    [JsonPropertyName("user_score")] public string? UserScore { get; set; }
+    [JsonPropertyName("user_rating")] public string? UserRating { get; set; }
     [JsonPropertyName("igdb_id")] public required int IgdbId { get; set; }
     [JsonPropertyName("released_at")] public DateTimeOffset? ReleasedAt { get; set; }
     [JsonPropertyName("platforms")] public string? Platforms { get; set; }

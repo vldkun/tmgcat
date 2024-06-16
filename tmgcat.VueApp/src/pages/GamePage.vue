@@ -47,6 +47,12 @@
                     <h2>
                         Оценки
                     </h2>
+                                           
+                    <p>Средняя оценка пользователей:
+                    <span class="title-page-score">
+                         {{ game.user_rating }}
+                    </span>
+                    </p>
                     <h2>
                         Мой Статус
                     </h2>

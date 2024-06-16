@@ -3,7 +3,7 @@
 public enum PageType
 {
     User,
-    Film,
+    Movie,
     TvShow,
     Game
 }

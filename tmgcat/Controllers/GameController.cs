@@ -34,7 +34,7 @@ namespace tmgcat.App.Controllers
                 GameId = game.Id,
                 Title = game.Title,
                 Description = game.Description,
-                UserScore = "None",
+                UserRating = game.UserRating is not null ? $"{game.UserRating:F1}" : null,
                 IgdbId = game.IgdbId,
                 ReleasedAt = game.ReleasedAt,
                 Platforms = game.Platforms,
@@ -85,6 +85,38 @@ namespace tmgcat.App.Controllers
                     _ => throw new InvalidOperationException()
                 };
                 await _gameListService.ChangeUserStatus(userId, gameId, intStatus, CancellationToken.None);
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("{gameId}/Played/{userId}")]
+        public async Task<ActionResult> ChangePlayingTime(long gameId, long userId, int time)
+        {
+            try
+            {
+                await _gameListService.ChangePlayingTime(userId, gameId, time, CancellationToken.None);
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
+
+        [HttpPost]
+        [Route("{gameId}/Score/{userId}")]
+        public async Task<ActionResult> ChangeUserScore(long gameId, long userId, int score)
+        {
+            try
+            {
+                await _gameListService.ChangeUserRating(userId, gameId, score, CancellationToken.None);
             }
             catch (Exception e)
             {

@@ -2,6 +2,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using tmgcat.Bll.Interfaces.Comments;
 using tmgcat.Bll.Interfaces.Games;
+using tmgcat.Bll.Interfaces.Movies;
+using tmgcat.Bll.Interfaces.TVShows;
 using tmgcat.Bll.Interfaces.Users;
 using tmgcat.Dal.Infrastructure;
 using tmgcat.Dal.Repositories;
@@ -22,6 +24,10 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IGameListRepository, GameListRepository>();
         services.AddScoped<IGameRepository, GameRepository>();
+        services.AddScoped<IMovieListRepository, MovieListRepository>();
+        services.AddScoped<IMovieRepository, MovieRepository>();
+        services.AddScoped<ITvShowListRepository, TvShowListRepository>();
+        services.AddScoped<ITvShowRepository, TvShowRepository>();
         services.AddScoped<ICommentRepository, CommentRepository>();
     }
 

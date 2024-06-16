@@ -1,5 +1,8 @@
 ﻿using tmgcat.Bll.Enums;
 using tmgcat.Bll.Interfaces.Comments;
+using tmgcat.Bll.Interfaces.Games;
+using tmgcat.Bll.Interfaces.Movies;
+using tmgcat.Bll.Interfaces.TVShows;
 using tmgcat.Bll.Interfaces.Users;
 using tmgcat.Bll.Models.Comments;
 using tmgcat.Bll.Models.Users;
@@ -10,11 +13,22 @@ public class UserService : IUserService
 {
     private readonly ICommentService _commentService;
     private readonly IUserRepository _userRepository;
+    private readonly IMovieService _movieService;
+    private readonly ITvShowService _tvShowService;
+    private readonly IGameService _gameService;
 
-    public UserService(IUserRepository userRepository, ICommentService commentService)
+    public UserService(
+        IUserRepository userRepository,
+        ICommentService commentService,
+        IMovieService movieService,
+        ITvShowService tvShowService,
+        IGameService gameService)
     {
         _userRepository = userRepository;
         _commentService = commentService;
+        _movieService = movieService;
+        _tvShowService = tvShowService;
+        _gameService = gameService;
     }
 
     public async Task<GetUserModel> GetUser(long userId, CancellationToken token)
@@ -53,5 +67,48 @@ public class UserService : IUserService
             PageType = (int)PageType.User,
         };
         await _commentService.AddComment(newComment, token);
+    }
+
+    public async Task<bool> AuthUser(AddUserModel user, CancellationToken token)
+    {
+        var isExist = await _userRepository.IsUsernameExistAsync(user.Email, token);
+        if (isExist)
+        {
+            return await _userRepository.AuthAsync(user, token);
+        }
+
+        return false;
+    }
+
+    public async Task<bool> CheckUsernameIsExist(string username, CancellationToken token)
+    {
+        return await _userRepository.IsUsernameExistAsync(username, token);
+    }
+
+    public async Task<UserLogModel[]> GetLogs(long userId, CancellationToken token)
+    {
+        var logs = await _userRepository.GetUserLogAsync(userId, token);
+        foreach (var item in logs)
+        {
+            switch (item.TitleType)
+            {
+                case 1:
+                    var movie = await _movieService.GetMovie(item.TitleId, token);
+                    item.PosterPath = movie.PosterPath;
+                    item.Title = movie.TitleRu;
+                    break;
+                case 2:
+                    var tvShow = await _tvShowService.GetTvShow(item.TitleId, token);
+                    item.PosterPath = tvShow.PosterPath;
+                    item.Title = tvShow.TitleRu;
+                    break;
+                case 3:
+                    var game = await _gameService.GetGame(item.TitleId, token);
+                    item.PosterPath = game.CoverPath;
+                    item.Title = game.Title;
+                    break;
+            }
+        }
+        return logs;
     }
 }

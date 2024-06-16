@@ -10,7 +10,7 @@ namespace tmgcat.Dal.Repositories;
 
 public class GameListRepository : PgRepository, IGameListRepository
 {
-    private IDateTimeProvider _dateTimeProvider;
+    private readonly IDateTimeProvider _dateTimeProvider;
 
     public GameListRepository(IDateTimeProvider dateTimeProvider,
         IOptions<DalOptions> dalSettings) : base(dalSettings.Value)
@@ -97,6 +97,7 @@ update game_list
         , gl.status
         , gl.minutes_played
         , gl.user_rating
+        , g.status as game_status
      from game_list as gl
 left join games g on g.id = gl.game_id
     where gl.user_id = @UserId

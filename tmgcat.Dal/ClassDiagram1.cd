@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="tmgcat.Dal.Repositories.UserRepository">
-    <Position X="11.75" Y="3.75" Width="1.5" />
+    <Position X="12" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAgAAAAAAAAAAAAEAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <HashCode>AAIBAgAAAAAAAEAAAAQAAAEAAAAAAAAAEAAgIAAAAAA=</HashCode>
       <FileName>Repositories\UserRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Repositories.PgRepository">
-    <Position X="8.5" Y="0.5" Width="1.5" />
+    <Position X="10" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
       <FileName>Repositories\PgRepository.cs</FileName>
@@ -17,15 +17,23 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Repositories.GameRepository">
-    <Position X="9.75" Y="3.75" Width="1.75" />
+    <Position X="13.5" Y="1" Width="1.75" />
+    <InheritanceLine Type="tmgcat.Dal.Repositories.PgRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.75" Y="2.94" />
+        <Point X="10.75" Y="3.375" />
+        <Point X="14.5" Y="3.375" />
+        <Point X="14.5" Y="3.194" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAACACAA=</HashCode>
+      <HashCode>AAAAAAQAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAACACAA=</HashCode>
       <FileName>Repositories\GameRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Repositories.GameListRepository">
-    <Position X="10.75" Y="0.5" Width="1.75" />
+    <Position X="10" Y="3.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAEAAAAAAACAA=</HashCode>
       <FileName>Repositories\GameListRepository.cs</FileName>
@@ -33,68 +41,78 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Infrastructure.Postgres">
-    <Position X="5.75" Y="4.5" Width="2" />
+    <Position X="5.75" Y="1" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAkAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Infrastructure\Postgres.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="tmgcat.Dal.Entities.GameListDataEntity">
-    <Position X="8" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAEAAAAAAAAAAEAAAgAAAAAAgAAAAAEAAEAAAA=</HashCode>
-      <FileName>Entities\GameListDataEntity.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="tmgcat.Dal.Extensions.ServiceCollectionExtensions">
-    <Position X="3.75" Y="2.75" Width="2" />
-    <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAA=</HashCode>
-      <FileName>Extensions\ServiceCollectionExtensions.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="tmgcat.Dal.Repositories.TvShowRepository">
-    <Position X="13.5" Y="3.75" Width="2" />
+    <Position X="13.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <HashCode>IAAQAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Repositories\TvShowRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Repositories.TvShowListRepository">
-    <Position X="13" Y="0.5" Width="1.75" />
+    <Position X="8" Y="3.75" Width="1.75" />
+    <InheritanceLine Type="tmgcat.Dal.Repositories.PgRepository" FixedFromPoint="true">
+      <Path>
+        <Point X="10.75" Y="2.94" />
+        <Point X="10.75" Y="3.375" />
+        <Point X="8.875" Y="3.375" />
+        <Point X="8.875" Y="3.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAEAAAAAAACAA=</HashCode>
       <FileName>Repositories\TvShowListRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Repositories.MovieRepository">
-    <Position X="6" Y="0.5" Width="2" />
+    <Position X="8" Y="1" Width="1.75" />
+    <InheritanceLine Type="tmgcat.Dal.Repositories.PgRepository" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.75" Y="2.94" />
+        <Point X="10.75" Y="3.375" />
+        <Point X="8.875" Y="3.375" />
+        <Point X="8.875" Y="3.002" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAIAAAAAAEAA=</HashCode>
       <FileName>Repositories\MovieRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Repositories.MovieListRepository">
-    <Position X="3.75" Y="0.5" Width="2" />
+    <Position X="5.75" Y="3.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAACAAgAEAAAAAAACAA=</HashCode>
       <FileName>Repositories\MovieListRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="tmgcat.Dal.Repositories.CommentRepository">
-    <Position X="6.25" Y="2.75" Width="1.5" />
+    <Position X="11.75" Y="1" Width="1.5" />
+    <InheritanceLine Type="tmgcat.Dal.Repositories.PgRepository" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.75" Y="2.94" />
+        <Point X="10.75" Y="3.375" />
+        <Point X="12.5" Y="3.375" />
+        <Point X="12.5" Y="3.069" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAIAAAAAA=</HashCode>
       <FileName>Repositories\CommentRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="HomeworkApp.Dal.Repositories.Interfaces.IPgRepository" Collapsed="true">
-    <Position X="4" Y="5.25" Width="1.5" />
+    <Position X="13.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repositories\Interfaces\IPgRepository.cs</FileName>

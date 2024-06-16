@@ -1,5 +1,4 @@
-﻿
-using tmgcat.Bll.Models.TVShows;
+﻿using tmgcat.Bll.Models.TVShows;
 
 namespace tmgcat.Bll.Interfaces.TVShows;
 

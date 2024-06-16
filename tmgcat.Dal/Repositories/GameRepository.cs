@@ -18,8 +18,12 @@ public class GameRepository : PgRepository, IGameRepository
     {
         var sql = @"
 select id, title, description, igdb_id, released_at, platforms, genres, cover_path, status, category, involved_companies
+     , (SELECT AVG(user_rating)
+          FROM game_list
+         WHERE game_id = @GameId) as user_rating
   from games 
- where id = @GameId";
+ where id = @GameId
+";
 
         await using var connection = await GetConnection();
         return await connection.QuerySingleAsync<GetGameModel>(

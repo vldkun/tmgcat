@@ -1,5 +1,22 @@
 <template>
   <header class="header">
+    <div class="list-menu" @click="goToMovieList(userId)">
+        Мои фильмы
+    </div>
+    <div class="list-menu" @click="goToTvShowList(userId)">
+        Мои сериалы
+    </div>
+    <div class="list-menu" @click="goToGameList(userId)">
+        Мои игры
+    </div>
+    <div class="profile-menu" @click="goToProfile(userId)">
+      <div class="profile-pic">
+        <img :src="getUrl(userProfilePic)" width=40px />
+      </div>
+      <div class="profile-name">
+        {{ userName }}
+      </div>
+    </div>
     <div class="global-search">
       <label class="field">
         <select v-model="searchType" class="search-select" @change="ClearSearch()">
@@ -8,20 +25,28 @@
           <option>Сериалы</option>
         </select>
         <input placeholder="Поиск" @input="Search()" v-model="searchQuery">
-        <span class="search-marker"></span>
+        <img src="../src/assets/search-icon.svg" class="search-marker">
+
       </label>
+
       <div class="search-results" cli>
         <div v-for="item in searchResults" class="search-item">
           <div class="search-content" @click="goToTitle(item.id)">
             <header class="search-header">
               <div class="search-pic">
-                <img :src="getUrl(item.poster_path)" width=48px/>
+                <img :src="getUrl(item.poster_path)" width=48px />
               </div>
               <div class="search-title-date">
                 <div class="search-title">
                   {{ item.title }}
                 </div>
-                <span class="search-date">
+                <span v-if="searchType=='Игры'" class="search-date">
+                  Дата выхода: {{ formatDateYear(item.released_at) }}
+                </span>
+                <span v-if="searchType=='Сериалы'" class="search-date">
+                  Даты эфира: {{ formatDateYear(item.first_air_date) }} - {{ formatDateYear(item.last_air_date) }}
+                </span>
+                <span v-if="searchType=='Фильмы'" class="search-date">
                   Дата выхода: {{ formatDateYear(item.released_at) }}
                 </span>
               </div>
@@ -38,39 +63,74 @@
 
 <script>
 import { searchGames } from '@/hooks/searchTitle';
+import { getUser } from '@/hooks/getUser';
 import formatDateMixin from '@/mixins/formatDateMixin';
+
 
 export default {
   data() {
     return {
       searchResults: [],
       searchType: 'Игры',
-      searchQuery: ''
+      loading: false,
+      searchQuery: '',
+      user: null,
+      userId: 1,
+      userProfilePic: 'https://sun9-48.userapi.com/impg/TSvSYqrvAMQ1unoASYXuMcnFwUFiPZTh1aTRYw/VQDgRWolW34.jpg?size=467x467&quality=95&sign=3e8ab9686d8945c1e7bed31df5d174d0&type=album',
+      userName: 'Vlad'
     }
   },
-  
+  created() {
+    this.fetchUserData;
+  },
   methods: {
     ClearSearch() {
       this.searchResults = [];
       this.searchQuery = ''
     },
     getUrl(link) {
-            return new URL(link, import.meta.url).href;
-        },
+      return new URL(link, import.meta.url).href;
+    },
+    goToProfile(id) {
+      this.$router.push(`/User/${id}/`);
+    },
+    goToMovieList(id) {
+      this.$router.push(`/User/${id}/MovieList`);
+    },
+    goToTvShowList(id) {
+      this.$router.push(`/User/${id}/TvShowList`);
+    },
+    goToGameList(id) {
+      this.$router.push(`/User/${id}/GameList`);
+    },
     goToTitle(id) {
       this.ClearSearch();
       switch (this.searchType) {
-            case 'Игры':
-            this.$router.push(`/Game/${id}/`);
-              break;
-            case 'Сериалы':
-            this.$router.push(`/TvShow/${id}/`);
-              break;
-            case 'Фильмы':
-            this.$router.push(`/Movie/${id}/`);
-              break;
-          }
-      
+        case 'Игры':
+          this.$router.push(`/Game/${id}/`);
+          break;
+        case 'Сериалы':
+          this.$router.push(`/TvShow/${id}/`);
+          break;
+        case 'Фильмы':
+          this.$router.push(`/Movie/${id}/`);
+          break;
+      }
+
+    },
+    async fetchUserData(id) {
+      this.error = this.game = null
+      this.loading = true
+
+      try {
+        this.user = (await getUser(id)).user
+        this.userName = this.user.name
+        this.userProfilePic = this.user.profile_picture_path;
+      } catch (err) {
+        this.error = err.toString()
+      } finally {
+        this.loading = false
+      }
     },
     async Search() {
       console.log()
@@ -81,10 +141,10 @@ export default {
               this.searchResults = (await searchGames(this.searchQuery)).titles;
               break;
             case 'Сериалы':
-              //this.searchResults = (await searchTvShows(this.searchQuery).titles;
+              this.searchResults = (await searchTvShows(this.searchQuery)).titles;
               break;
             case 'Фильмы':
-              //this.searchResults = (await searchMovies(this.searchQuery).titles;
+              this.searchResults = (await searchMovies(this.searchQuery)).titles;
               break;
           }
         } catch (err) {
@@ -114,9 +174,11 @@ export default {
   max-width: 1280px;
   margin: 0 auto;
   background-color: #aaaaaa;
+  min-height: 900px;
 }
 
 .header {
+  padding-left: 100px;
   background: #343434;
   color: #1c1c1c;
   height: 50px;
@@ -131,9 +193,52 @@ export default {
   padding: auto;
 }
 
+.profile-menu {
+  position: absolute;
+  right: 0;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.list-menu {
+  position: relative;
+  left: 0;
+  width: 350px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ffffff;
+  padding-top: 10px;
+  text-align: center;
+  
+}
+.list-menu:hover {
+  background-color: #4e4e4e;
+}
+
+.profile-menu:hover {
+  background-color: #4e4e4e;
+}
+
+.profile-pic {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+.profile-name {
+  position: absolute;
+  font-size: 18px;
+  color: #fff;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 55px;
+}
+
 .global-search {
-  margin-left: 300px;
-  margin-right: 200px;
+  margin-left: 100px;
+  margin-right: 400px;
   position: relative;
   width: 100%;
 }
@@ -159,14 +264,15 @@ export default {
 }
 
 .search-marker {
-  width: 39px;
+  width: 25px;
   right: 0;
   font-size: 20px;
-  height: 31px;
   line-height: 31px;
   position: absolute;
   text-align: center;
   top: 0;
+  margin: 3px;
+  opacity: 80%;
 }
 
 .search-select {

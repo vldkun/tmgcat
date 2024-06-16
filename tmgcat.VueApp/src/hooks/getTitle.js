@@ -23,3 +23,49 @@ export async function getGame(gameId) {
         game
     }
 }
+
+export async function getTvShow(tvShowId) {
+    const tvShow = ref()
+    const isListLoading = ref(true)
+    
+    try {
+        const response = await axios.get('https://localhost:7112/TvShow', {
+            params: {
+                id: tvShowId
+            }
+        });
+            
+        tvShow.value = response.data;
+    } catch (e) {
+        alert('Ошибка')
+    } finally {
+        isListLoading.value = false;
+    }
+    
+    return {
+        tvShow
+    }
+}
+
+export async function getMovie(movieId) {
+    const movie = ref()
+    const isListLoading = ref(true)
+    
+    try {
+        const response = await axios.get('https://localhost:7112/Movie', {
+            params: {
+                id: movieId
+            }
+        });
+            
+        movie.value = response.data;
+    } catch (e) {
+        alert('Ошибка')
+    } finally {
+        isListLoading.value = false;
+    }
+    
+    return {
+        movie
+    }
+}

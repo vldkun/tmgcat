@@ -36,10 +36,15 @@
     align-items: center;
 }
 
+.title-page-score {
+    font-size: 24px;
+}
+
 .title-page-data {
     margin-bottom: 30px;
     line-height: 1.65;
     position: relative;
+    min-height: 250px;
 }
 
 .title-page-image {
@@ -50,7 +55,7 @@
 
 .title-page-description {
     height: 100px;
-    width: 600px;
+    width: auto;
     display: inline-block;
 }
 
@@ -82,3 +87,4 @@
     color: #e6e6e6;
     padding: 0 5px;
 }
+
